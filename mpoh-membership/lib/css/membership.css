@@ -1,0 +1,112 @@
+:root {--mpohm-lt-gray:#eee;--mpohm-gray:#ccc;--mpohm-dk-gray:#777}
+
+
+.mpohm-user-dashboard
+{
+  width:auto;
+  max-width:100%;
+  margin:50px;
+  background:#fff;
+  border-radius:20px;
+  padding:50px;
+  box-shadow:0 0 5px rgba(0,0,0,.2);
+}
+
+#mpohm-membership-area button.button:disabled, #mpohm-membership-area button.button:disabled:hover
+{color:#ddd;border-color:#ddd;background:transparent;cursor:default}
+/* {opacity:0;cursor:default} */
+
+#mpohm-membership-area input[type="text"],
+#mpohm-membership-area input[type="email"],
+#mpohm-membership-area input[type="password"]
+{display:block;max-width:300px;margin:0 auto;text-align:center;width:100%}
+
+img.mpohm-login-img {display:block;width:300px;height:auto;margin:0 auto 2em;position:relative;left:10px}
+
+div.mpohm-button-stage {width:100%;height:50px;margin:30px auto 10px;position:relative}
+div.mpohm-button-area {position:absolute;top:0;left:0;width:100%;height:100%;z-index:200}
+div.mpohm-loading-area {position:absolute;top:0;left:0;width:100%;height:100%;z-index:100}
+
+.mpohm-hide-content {opacity:0;display:none!important}
+.mpohm-zero-opacity {opacity:0}
+.mpohm-small-type {font-size:80%!important}
+
+.mpohm-error-msg {color: red}
+
+#mpohm-membership-area p {text-align:center;margin:0 0 1em;padding:0}
+div.mpohm-form-line {width:300px;max-width:100%;margin:0 auto 1em;padding:0;text-align:center}
+
+div.mpohm-form-line label {font-size:90%;font-weight:bold;text-align:left;display:block}
+
+.mpohm-strong {font-weight:bold!important}
+.mpohm-normal {font-weight:normal!important}
+
+
+
+
+.dot-elastic {
+  margin:12px auto;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var( --mpohm-gray );
+  color: var( --mpohm-gray );
+  animation: dotElastic 1s infinite linear;
+}
+
+.dot-elastic::before, .dot-elastic::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-elastic::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var( --mpohm-gray );
+  color: var( --mpohm-gray );
+  animation: dotElasticBefore 1s infinite linear;
+}
+
+.dot-elastic::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var( --mpohm-gray );
+  color: var( --mpohm-gray );
+  animation: dotElasticAfter 1s infinite linear;
+}
+
+@keyframes dotElasticBefore {
+  /* 0%   {background-color:var(--mpohm-lt-gray)}
+  25%  {background-color:var(--mpohm-dk-gray)}
+  50%  {background-color:var(--mpohm-gray)}
+  75%  {background-color:var(--mpohm-gray)}
+  100% {background-color:var(--mpohm-gray)} */
+  0%   {transform: scale(1,1)}
+  25%  {transform: scale(1,1.5)}
+  50%  {transform: scale(1,0.67)}
+  75%  {transform: scale(1,1)}
+  100% {transform: scale(1,1)}
+}
+
+@keyframes dotElastic {
+  0%   {transform: scale(1,1)}
+  25%  {transform: scale(1,1)}
+  50%  {transform: scale(1,1.5)}
+  75%  {transform: scale(1,1)}
+  100% {transform: scale(1,1)}
+}
+
+@keyframes dotElasticAfter {
+  0%   {transform: scale(1,1)}
+  25%  {transform: scale(1,1)}
+  50%  {transform: scale(1,0.67)}
+  75%  {transform: scale(1,1.5)}
+  100% {transform: scale(1,1)}
+}
