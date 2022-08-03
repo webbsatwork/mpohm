@@ -26,4 +26,4 @@ add_action( 'wp_enqueue_scripts', 'mpohm_scripts' );
 require_once( 'lib/php/setup.php' );
 require_once( 'lib/php/funcs.php' );
 require_once( 'lib/php/Membership.php' );
-require_once( 'lib/php/Remote.php' );
+// require_once( 'lib/php/Remote.php' );

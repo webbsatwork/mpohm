@@ -34,6 +34,25 @@ class Membership
 
 
 
+  private function get_user_data()
+  {
+    $this->user_data = wp_get_current_user();
+    $uuid = get_user_meta( $this->user_data->data->ID, '_mpohm_user_uuid', 1 );
+
+    $person = new Entity( $uuid );
+    $person->retrieve();
+    $this->person = $person;
+
+    // Save phones
+    foreach( $person->phones as $phone )
+    {
+      $this->phones[] = $phone->number;
+    }
+  }
+
+
+
+
   public function member_page()
   {
     $this->get_user_data();
@@ -205,6 +224,8 @@ class Membership
   private function membership_panel_information()
   {
     $atts = $this->person->extra_attributes;
+    $phone = $this->phones[0];
+
     ?>
 
     <div id="mpohm-cp-panel-info" class="mpohm-cp-panel my-information anim">
@@ -296,7 +317,7 @@ class Membership
               <div class="mpohm-form-input-div flex50">
 
                 <label>Phone</label>
-                <input type="text" name="" id="" value="<?php echo $this->person->phone ?>" placeholder="" />
+                <input type="text" name="" id="" value="<?php echo $phone ?>" placeholder="" />
 
               </div>
 
@@ -310,7 +331,7 @@ class Membership
 
           </form>
 
-          <?php // print_array( $atts ) ?>
+          <?php print_array( $this ) ?>
 
         </div><!-- end .mpohm-dashboard-slider -->
 
@@ -530,19 +551,6 @@ class Membership
 
     <?php
 
-  }
-
-
-
-
-  private function get_user_data()
-  {
-    $this->user_data = wp_get_current_user();
-    $uuid = get_user_meta( $this->user_data->data->ID, '_mpohm_user_uuid', 1 );
-
-    $person = new Entity( $uuid );
-    $person->retrieve();
-    $this->person = $person;
   }
 
 

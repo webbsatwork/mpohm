@@ -32,6 +32,9 @@ jQuery( document ).ready(function( $ ) {
     var par = item.parent( 'li' );
     var tgt = item.attr( 'rel' );
 
+    par.siblings().removeClass( 'active-item' );
+    par.addClass( 'active-item' );
+
     // Change active panel
     var panel = $( '#' + tgt );
     var psibs = panel.siblings();
