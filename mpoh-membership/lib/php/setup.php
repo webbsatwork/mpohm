@@ -156,3 +156,28 @@ function mpohm_process_login()
     exit;
   }
 }
+
+
+
+
+// add_shortcode( 'faqh', 'mpohm_faqh' );
+// function mpohm_faqh( $atts = array(), $content = null )
+// {
+//     // do something to $content
+//     $content = '<div class="mpohm-faq-item"><h4>' . $content . '</h4>';
+//
+//     // always return
+//     return $content;
+// }
+
+
+
+// add_shortcode( 'faqa', 'mpohm_faqa' );
+// function mpohm_faqa( $atts = array(), $content = null )
+// {
+//     // do something to $content
+//     $content = '<p>' . $content . '</p></div>';
+//
+//     // always return
+//     return $content;
+// }

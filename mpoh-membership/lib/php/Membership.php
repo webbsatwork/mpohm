@@ -102,7 +102,7 @@ class Membership
       </ul>
 
       <div id="mpohm-dashboard-sidebar-footer">
-        <p><a href="/do-action?a=logout">Logout</a></p>
+        <p><i class="ws-ico-unlock mpohm-logout"></i><a href="/do-action?a=logout">Logout</a></p>
       </div>
 
     </div><!-- end #mpohm-dashboard-sidebar -->
@@ -409,6 +409,18 @@ class Membership
 
   private function membership_panel_faq()
   {
+    $faq_slug = 'mpohmfaq';
+
+    $faq_args = array(
+      'name'        => $faq_slug,
+      'post_type'   => 'page',
+      'post_status' => 'publish',
+      'numberposts' => 1
+    );
+
+    $info = get_posts( $faq_args );
+
+    $faq = wpautop( $info[0]->post_content );
 
     ?>
 
@@ -420,16 +432,11 @@ class Membership
 
         <div id="mpohm-faq-list">
 
-          <h4>Question goes here</h4>
-          <p>Answer goes here. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. </p>
-
-          <h4>Question goes here</h4>
-          <p>Answer goes here. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. </p>
-
-          <h4>Question goes here</h4>
-          <p>Answer goes here. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. </p>
+          <?php _e( $faq ) ?>
 
         </div>
+
+        <?php // print_array( $info ) ?>
 
       </div><!-- end .mpohm-dashboard-slider -->
 
@@ -445,6 +452,19 @@ class Membership
   private function membership_panel_terms()
   {
 
+    $terms_slug = 'mpohmterms';
+
+    $terms_args = array(
+      'name'        => $terms_slug,
+      'post_type'   => 'page',
+      'post_status' => 'publish',
+      'numberposts' => 1
+    );
+
+    $tinfo = get_posts( $terms_args );
+
+    $mpohm_terms = $tinfo[0]->post_content;
+
     ?>
 
     <div id="mpohm-cp-panel-terms" class="mpohm-cp-panel anim">
@@ -455,14 +475,7 @@ class Membership
 
         <div id="mpohm-terms-conditions">
 
-          <ul>
-            <li>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</li>
-            <li>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</li>
-            <li>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</li>
-            <li>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</li>
-            <li>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</li>
-            <li>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.</li>
-          </ul>
+          <?php _e( $mpohm_terms ) ?>
 
         </div>
 
